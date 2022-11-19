@@ -24,6 +24,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
 
 public class AuditQueryModelTest
 {
@@ -33,7 +34,7 @@ public class AuditQueryModelTest
     @Before
     public void start() throws Exception
     {
-        tempFile = File.createTempFile( "objectOutput", ".tmp" );
+        tempFile = Files.createTempFile( "objectOutput", ".tmp" ).toFile();
     }
 
     protected <T extends Externalizable> T read(T output) throws Exception
